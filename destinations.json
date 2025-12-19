@@ -1,0 +1,92 @@
+{
+  "destinations": {
+    "Manali": {
+      "distance": 550,
+      "places": [
+        "Hadimba Temple",
+        "Solang Valley",
+        "Rohtang Pass",
+        "Old Manali",
+        "Manu Temple",
+        "Vashisht Hot Springs",
+        "Mall Road",
+        "Jogini Waterfalls"
+      ],
+      "stayAreas": [
+        {
+          "area": "Old Manali",
+          "reason": "Budget-friendly cafes, backpacker vibe, close to nature trails"
+        },
+        {
+          "area": "Mall Road Area",
+          "reason": "Central location, easy access to markets and restaurants"
+        },
+        {
+          "area": "Vashisht",
+          "reason": "Peaceful, hot springs nearby, authentic local experience"
+        }
+      ],
+      "busTicket": 1200,
+      "trainTicket": 0,
+      "trainNote": "No direct train. Nearest station: Chandigarh (250km away)"
+    },
+    "Jaipur": {
+      "distance": 280,
+      "places": [
+        "Amber Fort",
+        "City Palace",
+        "Hawa Mahal",
+        "Jantar Mantar",
+        "Jal Mahal",
+        "Nahargarh Fort",
+        "Albert Hall Museum",
+        "Jaigarh Fort"
+      ],
+      "stayAreas": [
+        {
+          "area": "Pink City (Old Jaipur)",
+          "reason": "Near major attractions, authentic Rajasthani culture, great food"
+        },
+        {
+          "area": "MI Road Area",
+          "reason": "Shopping hub, restaurants, well-connected to all tourist spots"
+        },
+        {
+          "area": "Bani Park",
+          "reason": "Budget-friendly, quiet residential area, good connectivity"
+        }
+      ],
+      "busTicket": 600,
+      "trainTicket": 450
+    },
+    "Goa": {
+      "distance": 1450,
+      "places": [
+        "Baga Beach",
+        "Calangute Beach",
+        "Fort Aguada",
+        "Basilica of Bom Jesus",
+        "Dudhsagar Falls",
+        "Anjuna Flea Market",
+        "Palolem Beach",
+        "Chapora Fort"
+      ],
+      "stayAreas": [
+        {
+          "area": "North Goa (Calangute/Baga)",
+          "reason": "Vibrant nightlife, beach shacks, water sports, party scene"
+        },
+        {
+          "area": "South Goa (Palolem)",
+          "reason": "Peaceful beaches, relaxed vibe, scenic beauty"
+        },
+        {
+          "area": "Panaji",
+          "reason": "Capital city, heritage sites, local markets, central location"
+        }
+      ],
+      "busTicket": 2500,
+      "trainTicket": 1800
+    }
+  }
+}

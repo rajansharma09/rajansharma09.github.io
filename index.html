@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Trip Planner</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <div class="theme-toggle">
+        <button id="themeToggle" class="theme-btn">
+            <span class="sun-icon">☀️</span>
+            <span class="moon-icon">🌙</span>
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="heroSection">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Discover Your Next Adventure</h1>
+            <p class="hero-subtitle">Plan amazing trips with smart budget estimation</p>
+            <button class="hero-cta" onclick="scrollToPlanner()">🌍 Start Planning</button>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">3</span>
+                <span class="stat-label">Destinations</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100+</span>
+                <span class="stat-label">Places</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">4</span>
+                <span class="stat-label">Transport Options</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- Destination Cards Section -->
+        <section class="destinations-section">
+            <h2 class="section-title">Popular Destinations</h2>
+            <div class="destination-cards">
+                <div class="destination-card" data-destination="Manali">
+                    <div class="card-image manali-bg"></div>
+                    <div class="card-content">
+                        <h3>Manali</h3>
+                        <p>🏔️ Himachal Pradesh</p>
+                        <div class="card-rating">⭐ 4.8 (2.1k reviews)</div>
+                        <div class="card-price">From ₹8,000</div>
+                        <button class="card-btn" onclick="selectDestination('Manali')">Explore Now</button>
+                    </div>
+                </div>
+                <div class="destination-card" data-destination="Jaipur">
+                    <div class="card-image jaipur-bg"></div>
+                    <div class="card-content">
+                        <h3>Jaipur</h3>
+                        <p>🏰 Rajasthan</p>
+                        <div class="card-rating">⭐ 4.6 (1.8k reviews)</div>
+                        <div class="card-price">From ₹5,500</div>
+                        <button class="card-btn" onclick="selectDestination('Jaipur')">Explore Now</button>
+                    </div>
+                </div>
+                <div class="destination-card" data-destination="Goa">
+                    <div class="card-image goa-bg"></div>
+                    <div class="card-content">
+                        <h3>Goa</h3>
+                        <p>🏖️ Beach Paradise</p>
+                        <div class="card-rating">⭐ 4.9 (3.2k reviews)</div>
+                        <div class="card-price">From ₹12,000</div>
+                        <button class="card-btn" onclick="selectDestination('Goa')">Explore Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <main>
+            <div class="form-container" id="planningForm">
+                <h2>🎯 Smart Trip Planner</h2>
+                <div class="planner-tabs">
+                    <button class="tab-btn active" data-tab="quick">⚡ Quick Plan</button>
+                    <button class="tab-btn" data-tab="detailed">📋 Detailed</button>
+                </div>
+                
+                <form id="tripForm">
+                    <div class="search-bar">
+                        <div class="search-item">
+                            <span class="search-icon">📍</span>
+                            <select id="destination" required>
+                                <option value="">Choose Destination</option>
+                                <option value="Manali">🏔️ Manali</option>
+                                <option value="Jaipur">🏰 Jaipur</option>
+                                <option value="Goa">🏖️ Goa</option>
+                            </select>
+                        </div>
+                        
+                        <div class="search-item">
+                            <span class="search-icon">📅</span>
+                            <input type="number" id="days" min="1" max="15" placeholder="Days" required>
+                        </div>
+                        
+                        <div class="search-item">
+                            <span class="search-icon">👥</span>
+                            <input type="number" id="persons" min="1" max="10" placeholder="Travelers" required>
+                        </div>
+                    </div>
+
+                    <div class="transport-chips">
+                        <label class="transport-label">🚗 Choose Transport:</label>
+                        <div class="chips-container">
+                            <input type="radio" id="bike" name="transport" value="Bike" required>
+                            <label for="bike" class="chip">🏍️ Bike</label>
+                            
+                            <input type="radio" id="bus" name="transport" value="Bus" required>
+                            <label for="bus" class="chip">🚌 Bus</label>
+                            
+                            <input type="radio" id="train" name="transport" value="Train" required>
+                            <label for="train" class="chip">🚂 Train</label>
+                            
+                            <input type="radio" id="car" name="transport" value="Car" required>
+                            <label for="car" class="chip">🚗 Car</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        <span class="btn-text">✈️ Plan My Trip</span>
+                        <span class="btn-loader"></span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="results-container" id="resultsContainer" style="display: none;">
+                <div class="results-header">
+                    <h2>✨ Your Trip Plan</h2>
+                    <button class="btn-secondary" onclick="showPlanningForm()">← Plan Another</button>
+                </div>
+
+                <div class="trip-info">
+                    <h3 id="tripTitle"></h3>
+                    <div class="trip-details" id="tripDetails"></div>
+                </div>
+
+                <div class="itinerary-section">
+                    <h3>🗺️ Day-wise Itinerary</h3>
+                    <div id="itinerary"></div>
+                </div>
+
+                <div class="stay-section">
+                    <h3>🏨 Recommended Stay Areas</h3>
+                    <div id="stayAreas"></div>
+                </div>
+
+                <div class="budget-section">
+                    <h3>💰 Budget Breakdown</h3>
+                    <div id="budgetBreakdown"></div>
+                </div>
+
+                <div class="download-section">
+                    <button class="download-btn" onclick="downloadItinerary()">
+                        📥 Download Itinerary (PDF)
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Reviews Section -->
+        <section class="reviews-section">
+            <h2 class="section-title">🌟 Traveler Stories</h2>
+            <div class="reviews-slider">
+                <div class="review-card">
+                    <div class="review-avatar">👨</div>
+                    <h4>Rahul Sharma</h4>
+                    <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    <p>"Amazing trip to Manali! The budget estimation was spot-on. Highly recommend!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-avatar">👩</div>
+                    <h4>Priya Patel</h4>
+                    <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    <p>"Goa trip was perfectly planned. Loved the stay area suggestions!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-avatar">👨</div>
+                    <h4>Amit Kumar</h4>
+                    <div class="review-rating">⭐⭐⭐⭐</div>
+                    <p>"Jaipur itinerary was excellent. Saved money with smart planning!"</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>© 2025 Smart Trip Planner | Made with ❤️ for Travelers</p>
+        </footer>
+
+        <div class="loading" id="loading" style="display: none;">
+            <div class="plane-loader">✈️</div>
+            <p>Planning your perfect trip...</p>
+        </div>
+
+        <div class="error-message" id="errorMessage" style="display: none;"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
